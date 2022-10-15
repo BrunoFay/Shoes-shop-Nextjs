@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Adidas {
+  id                 String   @id @map("_id")
+  mainImage          String   @map("main_image")
+  primaryryCardImage String   @map("primary_card_image")
+  secondaryCardImage String?  @map("secondary_card_image")
+  secondariesImages  String[] @map("secondaries_images")
+  title              String
+  price              String
+}
+
+model Sneakers {
+  id                 String   @id @map("_id")
+  mainImage          String   @map("main_image")
+  primaryryCardImage String   @map("primary_card_image")
+  secondaryCardImage String?  @map("secondary_card_image")
+  secondariesImages  String[] @map("secondaries_images")
+  title              String
+  price              String
+}
+
+model Puma {
+  id                 String   @id @map("_id")
+  mainImage          String   @map("main_image")
+  primaryryCardImage String   @map("primary_card_image")
+  secondaryCardImage String?  @map("secondary_card_image")
+  secondariesImages  String[] @map("secondaries_images")
+  title              String
+  price              String
+}
+
+model Nike {
+  id                 String   @id @map("_id")
+  mainImage          String   @map("main_image")
+  primaryryCardImage String   @map("primary_card_image")
+  secondaryCardImage String?  @map("secondary_card_image")
+  secondariesImages  String[] @map("secondaries_images")
+  title              String
+  price              String
+}
+
+model Vans {
+  id                 String   @id @map("_id")
+  mainImage          String   @map("main_image")
+  primaryryCardImage String   @map("primary_card_image")
+  secondaryCardImage String?  @map("secondary_card_image")
+  secondariesImages  String[] @map("secondaries_images")
+  title              String
+  price              String
+}
