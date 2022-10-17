@@ -26,11 +26,11 @@ export default function Header() {
   }
 
   return (
-    <header className="flex">
+    <header className="flex gap-1">
       <div className="max-w-72 w-[20%]  border-b-2 border-r-2 h-28 flex items-center justify-center">
         <Image src={switchLogoImage()} alt="" width="100px" height="100px" />
       </div>
-      <div className="flex items-center border-b-2 justify-between px-10 w-[80%]">
+      <div className="flex items-center border-b-2 border-l-2 justify-between px-10 w-[80%]">
         <nav className="relative left-12 flex gap-10">
           <Link href="/category/nike">
             <a
