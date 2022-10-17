@@ -9,13 +9,13 @@ export default async function handler(
   try {
     const page = req.query.p || 0
     const sneakersPerPage = 50
-    const allSneakers = await prisma.sneakers.findMany({
+    const nike = await prisma.nike.findMany({
       skip: Number(page) * sneakersPerPage,
       take: 50,
     })
-    console.log(allSneakers.length)
+    console.log(nike.length)
 
-    res.status(200).json(allSneakers)
+    res.status(200).json(nike)
   } catch (error) {
     console.log(error)
   }

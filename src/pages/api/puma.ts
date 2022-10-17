@@ -7,15 +7,10 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   try {
-    const page = req.query.p || 0
-    const sneakersPerPage = 50
-    const allSneakers = await prisma.sneakers.findMany({
-      skip: Number(page) * sneakersPerPage,
-      take: 50,
-    })
-    console.log(allSneakers.length)
+    const puma = await prisma.puma.findMany({})
+    console.log(puma.length)
 
-    res.status(200).json(allSneakers)
+    res.status(200).json(puma)
   } catch (error) {
     console.log(error)
   }
