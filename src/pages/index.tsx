@@ -1,7 +1,12 @@
 import type { NextPage } from 'next'
 
+/* dependendo da categoria, muda o logo */
 const Home: NextPage = () => {
-  return <h1 className="bg-red-500 text-red-100">teste</h1>
+  return (
+    <div className=" w-full h-full flex flex-col">
+      <div className="flex gap-2"></div>
+    </div>
+  )
 }
 
 export default Home
