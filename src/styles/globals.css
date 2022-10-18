@@ -11,9 +11,7 @@ input::-webkit-inner-spin-button {
 *{
 @apply box-border
 }
-*::-webkit-scrollbar {
-  display: none;
-}
+
 header a {
 @apply  px-2 rounded font-semibold text-zinc-500 border-b-2 border-transparent;
 }
