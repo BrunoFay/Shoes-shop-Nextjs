@@ -7,6 +7,7 @@ import nikeLogo from '../assets/header logos/nike.svg'
 import pumaLogo from '../assets/header logos/puma.svg'
 import vansLogo from '../assets/header logos/vans.svg'
 import adidasLogo from '../assets/header logos/adidas.svg'
+import mainLogo2 from '../assets/header logos/shoes.svg'
 
 export default function Header() {
   const router = useRouter()
@@ -21,7 +22,7 @@ export default function Header() {
       case '/category/vans':
         return vansLogo
       default:
-        return ''
+        return mainLogo2
     }
   }
 
@@ -34,42 +35,46 @@ export default function Header() {
         <nav className="relative left-12 flex gap-10">
           <Link href="/category/nike">
             <a
-              className={
-                router.pathname === '/category/nike' ? 'font-semibold ' : ''
-              }
+              className={`${
+                router.pathname === '/category/nike' &&
+                'text-zinc-900 border-orange-500'
+              }`}
             >
               Nike
             </a>
           </Link>
           <Link href="/category/adidas">
             <a
-              className={
-                router.pathname === '/category/adidas' ? 'font-semibold ' : ''
-              }
+              className={`${
+                router.pathname === '/category/adidas' &&
+                'text-zinc-900 border-orange-500'
+              }`}
             >
               Adidas
             </a>
           </Link>
           <Link href="/category/puma">
             <a
-              className={
-                router.pathname === '/category/puma' ? 'font-semibold ' : ''
-              }
+              className={`${
+                router.pathname === '/category/puma' &&
+                'text-zinc-900 border-orange-500'
+              }`}
             >
               Puma
             </a>
           </Link>
           <Link href="/category/vans">
             <a
-              className={
-                router.pathname === '/category/vans' ? 'font-semibold ' : ''
-              }
+              className={`${
+                router.pathname === '/category/vans' &&
+                'text-zinc-900 border-orange-500'
+              }`}
             >
               Vans
             </a>
           </Link>
           <Link href="/">
-            <a className={router.pathname === '/' ? '' : ''}>Sneakers</a>
+            <a className={`${router.pathname === '/' && ''}`}>Sneakers</a>
           </Link>
         </nav>
         <form className="flex items-center " action="">
