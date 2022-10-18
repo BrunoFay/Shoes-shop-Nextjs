@@ -4,8 +4,11 @@ import MainContainer from '../../components/MainContainer'
 import nikeLogo2 from '../../assets/banner logos/nike-2.svg'
 import Image from 'next/future/image'
 import ProductsContainer from '../../components/ProductsContainer'
+import { Product } from '../../types/product'
+import { GetServerSideProps } from 'next'
+import { Api } from '../../libs/axios'
 
-export default function nike() {
+export default function nike(products: Product[]) {
   return (
     <MainContainer>
       <Banner>
@@ -14,7 +17,16 @@ export default function nike() {
           Write the Future Just Do It!
         </h2>
       </Banner>
-      <ProductsContainer />
+      <ProductsContainer {...products} />
     </MainContainer>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const product = await Api.get('/nike')
+  return {
+    props: {
+      products: product.data,
+    },
+  }
 }

@@ -17,5 +17,5 @@ export default async function userHandler(
       id: String(id),
     },
   })
-  res.status(200).json(adidas)
+  return res.status(200).json(adidas)
 }

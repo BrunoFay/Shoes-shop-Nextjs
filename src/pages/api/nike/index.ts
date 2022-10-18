@@ -32,7 +32,7 @@ export default async function handler(
       take: 50,
     })
 
-    res.status(200).json(nike)
+    return res.status(200).json(nike)
   } catch (error) {
     console.log(error)
   }

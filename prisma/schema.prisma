@@ -13,7 +13,7 @@ datasource db {
 model Adidas {
   id                 String   @id @map("_id") @db.ObjectId
   mainImage          String   @map("main_image")
-  primaryryCardImage String   @map("primary_card_image")
+  primaryCardImage String   @map("primary_card_image")
   secondaryCardImage String?  @map("secondary_card_image")
   secondariesImages  String[] @map("secondaries_images")
   title              String
@@ -23,7 +23,7 @@ model Adidas {
 model Sneakers {
   id                 String   @id @map("_id") @db.ObjectId
   mainImage          String   @map("main_image")
-  primaryryCardImage String   @map("primary_card_image")
+  primaryCardImage String   @map("primary_card_image")
   secondaryCardImage String?  @map("secondary_card_image")
   secondariesImages  String[] @map("secondaries_images")
   title              String
@@ -33,7 +33,7 @@ model Sneakers {
 model Puma {
   id                 String   @id @map("_id") @db.ObjectId
   mainImage          String   @map("main_image")
-  primaryryCardImage String   @map("primary_card_image")
+  primaryCardImage String   @map("primary_card_image")
   secondaryCardImage String?  @map("secondary_card_image")
   secondariesImages  String[] @map("secondaries_images")
   title              String
@@ -43,7 +43,7 @@ model Puma {
 model Nike {
   id                 String   @id @map("_id") @db.ObjectId
   mainImage          String   @map("main_image")
-  primaryryCardImage String   @map("primary_card_image")
+  primaryCardImage String   @map("primary_card_image")
   secondaryCardImage String?  @map("secondary_card_image")
   secondariesImages  String[] @map("secondaries_images")
   title              String
@@ -53,7 +53,7 @@ model Nike {
 model Vans {
   id                 String   @id @map("_id") @db.ObjectId
   mainImage          String   @map("main_image")
-  primaryryCardImage String   @map("primary_card_image")
+  primaryCardImage String   @map("primary_card_image")
   secondaryCardImage String?  @map("secondary_card_image")
   secondariesImages  String[] @map("secondaries_images")
   title              String

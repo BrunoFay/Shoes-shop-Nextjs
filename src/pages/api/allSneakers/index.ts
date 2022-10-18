@@ -31,9 +31,8 @@ export default async function handler(
       skip: Number(page) * sneakersPerPage,
       take: 50,
     })
-    console.log(allSneakers.length)
 
-    res.status(200).json(allSneakers)
+    return res.status(200).json(allSneakers)
   } catch (error) {
     console.log(error)
   }

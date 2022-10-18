@@ -13,5 +13,5 @@ input::-webkit-inner-spin-button {
 }
 
 header a {
-@apply  px-2 rounded font-semibold text-zinc-500 border-b-2 border-transparent;
+@apply  px-2 rounded font-semibold text-zinc-500 border-b-4 border-transparent;
 }

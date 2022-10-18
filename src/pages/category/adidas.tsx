@@ -4,8 +4,11 @@ import MainContainer from '../../components/MainContainer'
 import adidasLogo2 from '../../assets/banner logos/adidas-2.svg'
 import Image from 'next/future/image'
 import ProductsContainer from '../../components/ProductsContainer'
+import { Product } from '../../types/product'
+import { Api } from '../../libs/axios'
+import { GetServerSideProps } from 'next'
 
-export default function adidas() {
+export default function adidas(products: Product[]) {
   return (
     <MainContainer>
       <Banner>
@@ -14,7 +17,16 @@ export default function adidas() {
           Impossible is Nothing!
         </h2>
       </Banner>
-      <ProductsContainer />
+      <ProductsContainer {...products} />
     </MainContainer>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const product = await Api.get('/adidas')
+  return {
+    props: {
+      products: product.data,
+    },
+  }
 }

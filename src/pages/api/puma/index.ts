@@ -22,9 +22,8 @@ export default async function handler(
       return res.status(200).json(pumaCategory)
     }
     const puma = await prisma.puma.findMany({})
-    console.log(puma.length)
 
-    res.status(200).json(puma)
+    return res.status(200).json(puma)
   } catch (error) {
     console.log(error)
   }

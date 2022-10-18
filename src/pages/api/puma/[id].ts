@@ -18,5 +18,5 @@ export default async function userHandler(
       id: id as string,
     },
   })
-  res.status(200).json(puma)
+  return res.status(200).json(puma)
 }
