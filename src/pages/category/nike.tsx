@@ -18,8 +18,8 @@ export default function nike(products: Product[]) {
           Write the Future Just Do It!
         </h2>
       </Banner>
-      <PaginationFilter n={14} />
-      <ProductsContainer {...products} />
+      <PaginationFilter numPages={14} apiURL={'nike'} />
+      <ProductsContainer {...products} pagination />
     </MainContainer>
   )
 }

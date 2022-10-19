@@ -18,8 +18,8 @@ export default function adidas(products: Product[]) {
           Impossible is Nothing!
         </h2>
       </Banner>
-      <PaginationFilter n={3} />
-      <ProductsContainer {...products} />
+      <PaginationFilter numPages={3} apiURL={'adidas'} />
+      <ProductsContainer {...products} pagination />
     </MainContainer>
   )
 }

@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { productContext } from '../context/productsProvider'
+import { Api } from '../libs/axios'
 
-export default function PaginationFilter({ n }: any) {
+export default function PaginationFilter({ numPages, apiURL }: any) {
+  const [currentPage, setCurrentPage] = useState(0)
+  const { changeProductContext } = useContext(productContext)
+  async function changeCurrentPage() {
+    const { data } = await Api.get(`${apiURL}?p=${currentPage}`)
+    changeProductContext(data)
+  }
+  useEffect(() => {
+    changeCurrentPage()
+  }, [currentPage])
+
+  const validatePreviousPage = currentPage !== 0 ? currentPage - 1 : 0
+  const validateNextPage = currentPage !== numPages ? currentPage + 1 : numPages
   return (
     <nav className="self-center ">
       <ul className="inline-flex items-center -space-x-px">
         <li>
-          <button className="block py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          <button
+            onClick={() => setCurrentPage(validatePreviousPage)}
+            className="block py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          >
             <span className="sr-only">Previous</span>
             <svg
               aria-hidden="true"
@@ -22,19 +39,24 @@ export default function PaginationFilter({ n }: any) {
             </svg>
           </button>
         </li>
-        {[...Array(n)].map((_, i) => (
+        {[...Array(numPages + 1)].map((_, i) => (
           <li key={i}>
-            <a
-              href="#"
-              className="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            <button
+              onClick={() => setCurrentPage(i)}
+              className={`${
+                currentPage === i ? 'text-orange-500' : 'text-gray-500'
+              } py-2 px-3 leading-tight  bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}
             >
               {i + 1}
-            </a>
+            </button>
           </li>
         ))}
 
         <li>
-          <button className="block py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          <button
+            onClick={() => setCurrentPage(validateNextPage)}
+            className="block py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          >
             <span className="sr-only">Next</span>
             <svg
               aria-hidden="true"

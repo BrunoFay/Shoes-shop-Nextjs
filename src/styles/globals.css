@@ -16,5 +16,5 @@ header a {
 @apply  px-2 rounded font-semibold text-zinc-500 border-b-4 border-transparent;
 }
 body{
-@apply bg-slate-200
+@apply bg-slate-100
 }

@@ -56,6 +56,8 @@ export default function ProductCard(product: Product) {
           alt=""
           width={386}
           height={328}
+          blurDataURL={product.primaryCardImage}
+          placeholder="blur"
         />
       </a>
       <div className="px-1 mt-2 text-lg flex flex-col gap-1">
