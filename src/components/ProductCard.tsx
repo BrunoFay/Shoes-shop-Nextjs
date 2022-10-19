@@ -62,7 +62,7 @@ export default function ProductCard(product: Product) {
         <span
           className={`${productSizes} lowercase text-gray-700 font-semibold first-letter:uppercase`}
         >
-          {product.title}
+          {product.title.replace('Tenis', '').replace('Tênis', '')}
         </span>
         <span className={`${productSizes} font-semibold text-gray-400`}>
           R$ {product.price}

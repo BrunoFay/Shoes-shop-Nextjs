@@ -38,8 +38,8 @@ export default function ProductContainer({
   }
 
   return (
-    <div className="flex">
-      <div className=" border  items-center gap-1 flex flex-col max-h-[87.3vh] h-screen w-[80vw]">
+    <div className="flex bg-white">
+      <div className=" border  items-center gap-1 flex flex-col h-screen w-[80vw]">
         <div className="relative top-10 left-[42%] flex">
           <button>
             <CaretLeft size={32} color="gray" />
@@ -69,10 +69,12 @@ export default function ProductContainer({
         </div>
       </div>
 
-      <div className=" items-center border justify-between py-10 flex flex-col max-h-[87.3vh] h-screen w-[20vw]">
+      <div className=" items-center border justify-between py-10 flex flex-col h-screen w-[20vw]">
         <div className="flex flex-col px-8 gap-7">
           <div className="flex items-center">
-            <h1 className=" xl:text-3xl text-xl font-bold">{product.title}</h1>
+            <h1 className=" xl:text-3xl text-xl font-bold">
+              {product.title.replace('Tenis', '').replace('Tênis', '')}
+            </h1>
           </div>
           <h2 className="font-semibold italic text-2xl self-start ">
             R$ {product.price}

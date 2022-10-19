@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next'
-import nikeLogo from '../../../assets/banner logos/nike-2.svg'
+import nikeLogo from '../../../assets/banner logos/nike.svg'
 import ProductContainer from '../../../components/ProductContainer'
 import { Api } from '../../../libs/axios'
 import { Product as ProductType } from '../../../types/product'

@@ -7,6 +7,7 @@ import ProductsContainer from '../../components/ProductsContainer'
 import { Product } from '../../types/product'
 import { GetServerSideProps } from 'next'
 import { Api } from '../../libs/axios'
+import PaginationFilter from '../../components/PaginationFilter'
 
 export default function nike(products: Product[]) {
   return (
@@ -17,6 +18,7 @@ export default function nike(products: Product[]) {
           Write the Future Just Do It!
         </h2>
       </Banner>
+      <PaginationFilter n={14} />
       <ProductsContainer {...products} />
     </MainContainer>
   )

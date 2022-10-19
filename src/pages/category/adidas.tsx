@@ -7,6 +7,7 @@ import ProductsContainer from '../../components/ProductsContainer'
 import { Product } from '../../types/product'
 import { Api } from '../../libs/axios'
 import { GetServerSideProps } from 'next'
+import PaginationFilter from '../../components/PaginationFilter'
 
 export default function adidas(products: Product[]) {
   return (
@@ -17,6 +18,7 @@ export default function adidas(products: Product[]) {
           Impossible is Nothing!
         </h2>
       </Banner>
+      <PaginationFilter n={3} />
       <ProductsContainer {...products} />
     </MainContainer>
   )

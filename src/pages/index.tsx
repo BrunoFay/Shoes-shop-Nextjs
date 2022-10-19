@@ -1,6 +1,7 @@
 import type { GetServerSideProps } from 'next'
 import Banner from '../components/Banner'
 import MainContainer from '../components/MainContainer'
+import PaginationFilter from '../components/PaginationFilter'
 import ProductsContainer from '../components/ProductsContainer'
 import { Api } from '../libs/axios'
 import { Product } from '../types/product'
@@ -10,6 +11,7 @@ const Home = (products: Product[]) => {
   return (
     <MainContainer>
       <Banner />
+      <PaginationFilter n={27} />
       <ProductsContainer {...products} />
     </MainContainer>
   )

@@ -9,9 +9,12 @@ input::-webkit-inner-spin-button {
 }
 
 *{
-@apply box-border
+@apply box-border outline-2 outline-orange-500 ring-orange-500
 }
 
 header a {
 @apply  px-2 rounded font-semibold text-zinc-500 border-b-4 border-transparent;
+}
+body{
+@apply bg-slate-200
 }

@@ -9,7 +9,7 @@ export default function Filters() {
         isFilterHidden
           ? 'w-[0%]  '
           : 'w-[19.96%] overflow-hidden lg:border-l-2 border-r-2 '
-      } py-20  transition-all duration-150 items-center `}
+      } py-20  transition-all duration-150 items-center bg-white`}
     >
       <div
         className={`${
@@ -20,10 +20,10 @@ export default function Filters() {
           Nike
         </strong>
         <div className="mt-9  w-fit items-center flex flex-col gap-6 ">
-          <button>NIKE SPORTSWEAR</button>
-          <button>NIKE SB</button>
-          <button>AIR MAX</button>
-          <button>JORDAN</button>
+          <button className="px-2">NIKE SPORTSWEAR</button>
+          <button className="px-2">NIKE SB</button>
+          <button className="px-2">AIR MAX</button>
+          <button className="px-2">JORDAN</button>
         </div>
         <div className="mt-14">
           <strong className="text-2xl text-zinc-800 drop-shadow-lg shadow-black">
@@ -34,7 +34,7 @@ export default function Filters() {
               Min
               <input
                 placeholder="R$ 200"
-                className="rounded px-2 ring-2 w-28 h-7"
+                className="rounded px-2 border text-zinc-700  w-28 h-7"
                 type="number"
               />
             </label>
@@ -42,7 +42,7 @@ export default function Filters() {
               Max
               <input
                 placeholder="R$ 3.000"
-                className="rounded px-2 ring-2 w-28 h-7"
+                className="rounded px-2 border text-zinc-700  w-28 h-7"
                 type="number"
               />
             </label>
