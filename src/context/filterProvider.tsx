@@ -23,6 +23,7 @@ export function FilterProvider({ children }: PropsWithChildren) {
       setGridFilter(type)
     }
   }
+
   function setGridColumns() {
     switch (gridFilter) {
       case 'two':

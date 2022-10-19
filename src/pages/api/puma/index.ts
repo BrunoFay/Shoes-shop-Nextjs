@@ -11,11 +11,13 @@ export default async function handler(
     if (method !== 'GET') {
       return res.status(405).end(`Method ${method} Not Allowed`)
     }
-    const category = req.query.c
-    if (category) {
+
+    const filterType = req.query.filter
+
+    if (filterType) {
       const pumaCategory = await prisma.puma.findMany({
         where: {
-          title: { contains: String(category), mode: 'insensitive' },
+          title: { contains: String(filterType), mode: 'insensitive' },
         },
       })
 

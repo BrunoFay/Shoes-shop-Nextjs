@@ -1,8 +1,15 @@
-import React, { useContext } from 'react'
+import { useRouter } from 'next/router'
+import { useContext } from 'react'
 import { filterContext } from '../context/filterProvider'
+import { useFilters } from '../hooks/useFilters'
 
 export default function Filters() {
   const { isFilterHidden } = useContext(filterContext)
+  const router = useRouter()
+  const currentCategory = router.pathname.split('/')[2]
+  const { handleChangeProductByFilter, handleCategoriesFilters } =
+    useFilters(currentCategory)
+
   return (
     <div
       className={`${
@@ -16,14 +23,19 @@ export default function Filters() {
           isFilterHidden && 'hidden'
         } flex flex-col  text-center items-center `}
       >
-        <strong className="text-2xl text-zinc-800 drop-shadow-lg shadow-black">
-          Nike
+        <strong className="text-2xl first-letter:uppercase text-zinc-800 drop-shadow-lg shadow-black">
+          {currentCategory}
         </strong>
         <div className="mt-9  w-fit items-center flex flex-col gap-6 ">
-          <button className="px-2">NIKE SPORTSWEAR</button>
-          <button className="px-2">NIKE SB</button>
-          <button className="px-2">AIR MAX</button>
-          <button className="px-2">JORDAN</button>
+          {handleCategoriesFilters().map((category, i) => (
+            <button
+              key={i}
+              onClick={() => handleChangeProductByFilter(category)}
+              className={`focus:border-orange-500 border-b-4 border-b-transparent rounded px-2 uppercase`}
+            >
+              {category}
+            </button>
+          ))}
         </div>
         <div className="mt-14">
           <strong className="text-2xl text-zinc-800 drop-shadow-lg shadow-black">
@@ -53,16 +65,46 @@ export default function Filters() {
             Colors
           </strong>
           <div className="rounded shadow-md border gap-2 w-44 h-20 m-7 px-4 py-3 flex flex-wrap">
-            <button className="w-5 h-5 rounded-full bg-red-500" />
-            <button className="w-5 h-5 rounded-full bg-blue-500" />
-            <button className="w-5 h-5 rounded-full bg-orange-500" />
-            <button className="w-5 h-5 rounded-full bg-black" />
-            <button className="w-5 h-5 rounded-full bg-pink-500" />
-            <button className="w-5 h-5 border rounded-full bg-white" />
-            <button className="w-5 h-5 rounded-full bg-gray-500" />
-            <button className="w-5 h-5 rounded-full bg-cyan-500" />
-            <button className="w-5 h-5 rounded-full bg-yellow-900" />
-            <button className="w-5 h-5 rounded-full bg-purple-700" />
+            <button
+              onClick={() => handleChangeProductByFilter('vermelho')}
+              className="w-5 h-5 rounded-full bg-red-500"
+            />
+            <button
+              onClick={() => handleChangeProductByFilter('azul')}
+              className="w-5 h-5 rounded-full bg-blue-500"
+            />
+            <button
+              onClick={() => handleChangeProductByFilter('laranja')}
+              className="w-5 h-5 rounded-full bg-orange-500"
+            />
+            <button
+              onClick={() => handleChangeProductByFilter('preto')}
+              className="w-5 h-5 rounded-full bg-black"
+            />
+            <button
+              onClick={() => handleChangeProductByFilter('rosa')}
+              className="w-5 h-5 rounded-full bg-pink-500"
+            />
+            <button
+              onClick={() => handleChangeProductByFilter('branco')}
+              className="w-5 h-5 border rounded-full bg-white"
+            />
+            <button
+              onClick={() => handleChangeProductByFilter('cinza')}
+              className="w-5 h-5 rounded-full bg-gray-500"
+            />
+            <button
+              onClick={() => handleChangeProductByFilter('verde')}
+              className="w-5 h-5 rounded-full bg-green-500"
+            />
+            <button
+              onClick={() => handleChangeProductByFilter('marrom')}
+              className="w-5 h-5 rounded-full bg-yellow-900"
+            />
+            <button
+              onClick={() => handleChangeProductByFilter('roxo')}
+              className="w-5 h-5 rounded-full bg-purple-700"
+            />
           </div>
         </div>
       </div>

@@ -13,12 +13,12 @@ export default async function handler(
     }
     const page = req.query.p || 0
     const sneakersPerPage = 50
-    const category = req.query.c
+    const filterType = req.query.filter
 
-    if (category) {
+    if (filterType) {
       const vansCategory = await prisma.vans.findMany({
         where: {
-          title: { contains: String(category), mode: 'insensitive' },
+          title: { contains: String(filterType), mode: 'insensitive' },
         },
         skip: Number(page) * sneakersPerPage,
         take: 50,

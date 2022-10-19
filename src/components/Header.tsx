@@ -60,14 +60,14 @@ export default function Header() {
             <a className={`${router.pathname === '/' && ''}`}>Sneakers</a>
           </Link>
         </nav>
-        <form className="flex items-center " action="">
+        <div className="flex items-center ">
           <MagnifyingGlass size={23} className="relative left-7 " />
           <input
             placeholder="AirMax Scorpion "
             type="text"
             className="border w-52  rounded py-1 pl-8 pr-2 outline-none focus:ring-2"
           />
-        </form>
+        </div>
         <nav className="flex gap-4">
           <Link href="#">
             <a>

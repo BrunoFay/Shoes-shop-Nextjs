@@ -38,8 +38,8 @@ export default function ProductContainer({
   }
 
   return (
-    <div className="flex bg-white">
-      <div className=" border  items-center gap-1 flex flex-col h-screen w-[80vw]">
+    <div className="flex bg-white min-w-screen">
+      <div className=" border  items-center gap-1 flex flex-col 2xl:h-screen min-h-screen w-[70vw] lg:w-[80vw]">
         <div className="relative top-10 left-[42%] flex">
           <button>
             <CaretLeft size={32} color="gray" />
@@ -58,7 +58,7 @@ export default function ProductContainer({
           />
         </div>
         <Image
-          className=""
+          className="lg:w-[580px] w-[50vw]"
           alt=""
           src={product.mainImage}
           width={580}
@@ -69,7 +69,7 @@ export default function ProductContainer({
         </div>
       </div>
 
-      <div className=" items-center border justify-between py-10 flex flex-col h-screen w-[20vw]">
+      <div className=" items-center border justify-between py-10 flex flex-col 2xl:h-screen min-h-screen w-[30vw] lg:w-[20vw]">
         <div className="flex flex-col px-8 gap-7">
           <div className="flex items-center">
             <h1 className=" xl:text-3xl text-xl font-bold">
@@ -86,13 +86,13 @@ export default function ProductContainer({
             magnam ipsum provident deleniti.
           </p>
         </div>
-        <div className="flex max-w-[310px] gap-5 flex-col">
+        <div className="flex px-8 max-w-[310px] gap-5 flex-col">
           <strong>Sizes</strong>
           <div className="gap-2 flex flex-wrap">
             {[...Array(10)].map((_, i) => (
               <button
                 key={i}
-                className="w-10 h-7 rounded text-white bg-zinc-400"
+                className="xl:w-10 xl:h-7 h-5 w-8 text-sm xl:text-base rounded text-white bg-zinc-400"
               >
                 3{i}
               </button>
@@ -100,11 +100,11 @@ export default function ProductContainer({
           </div>
         </div>
         <div className="flex w-52 gap-4 flex-col items-center">
-          <button className="rounded-md items-center justify-center shadow bg-zinc-700 hover:bg-black hover:text-white transition-colors text-zinc-100 flex gap-2 border min-w-full py-2 font-semibold text-sm">
+          <button className="rounded-md items-center justify-center shadow bg-zinc-700 hover:bg-black hover:text-white transition-colors text-zinc-100 flex gap-2 border w-full py-2 font-semibold text-sm">
             Add to bag
             <Tote color="white" size={20} />
           </button>
-          <button className="rounded-md hover:text-black text-zinc-700 items-center justify-center shadow flex gap-2 border min-w-full py-2 font-semibold transition-colors hover:bg-gray-100 text-sm">
+          <button className="rounded-md hover:text-black text-zinc-700 items-center justify-center shadow flex gap-2 border w-full py-2 font-semibold transition-colors hover:bg-gray-100 text-sm">
             favorite
             <Heart color="red" size={20} />
           </button>

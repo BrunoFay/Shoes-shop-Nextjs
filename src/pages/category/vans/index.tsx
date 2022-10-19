@@ -1,12 +1,11 @@
-import React from 'react'
-import Banner from '../../components/Banner'
-import MainContainer from '../../components/MainContainer'
-import vansLogo2 from '../../assets/banner logos/vans-2.svg'
-import Image from 'next/future/image'
-import ProductsContainer from '../../components/ProductsContainer'
-import { Product } from '../../types/product'
 import { GetServerSideProps } from 'next'
-import { Api } from '../../libs/axios'
+import Image from 'next/future/image'
+import vansLogo2 from '../../../assets/banner logos/vans-2.svg'
+import Banner from '../../../components/Banner'
+import MainContainer from '../../../components/MainContainer'
+import ProductsContainer from '../../../components/ProductsContainer'
+import { Api } from '../../../libs/axios'
+import { Product } from '../../../types/product'
 
 export default function vans(products: Product[]) {
   return (

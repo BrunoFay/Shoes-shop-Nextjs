@@ -19,20 +19,20 @@ export default function ProductCard(product: Product) {
   useEffect(() => {
     switch (router.pathname) {
       case '/category/nike':
-        setProductHref(`/product/nike/${product.id}`)
+        setProductHref(`/category/nike/${product.id}`)
         break
       case '/category/adidas':
-        setProductHref(`/product/adidas/${product.id}`)
+        setProductHref(`/category/adidas/${product.id}`)
         break
       case '/category/vans':
-        setProductHref(`/product/vans/${product.id}`)
+        setProductHref(`/category/vans/${product.id}`)
         break
       case '/category/puma':
-        setProductHref(`/product/puma/${product.id}`)
+        setProductHref(`/category/puma/${product.id}`)
         break
 
       default:
-        setProductHref(`/product/${product.id}`)
+        setProductHref(`/category/sneakers/${product.id}`)
         break
     }
   }, [router.pathname])

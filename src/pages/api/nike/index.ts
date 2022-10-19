@@ -12,13 +12,13 @@ export default async function handler(
       return res.status(405).end(`Method ${method} Not Allowed`)
     }
     const page = req.query.p || 0
-    const category = req.query.c
     const sneakersPerPage = 50
+    const filterType = req.query.filter
 
-    if (category) {
+    if (filterType) {
       const nikeCategory = await prisma.nike.findMany({
         where: {
-          title: { contains: String(category), mode: 'insensitive' },
+          title: { contains: String(filterType), mode: 'insensitive' },
         },
         skip: Number(page) * sneakersPerPage,
         take: 50,

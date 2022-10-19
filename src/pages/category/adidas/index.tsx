@@ -1,13 +1,13 @@
 import React from 'react'
-import Banner from '../../components/Banner'
-import MainContainer from '../../components/MainContainer'
-import adidasLogo2 from '../../assets/banner logos/adidas-2.svg'
+import Banner from '../../../components/Banner'
+import MainContainer from '../../../components/MainContainer'
+import adidasLogo2 from '../../../assets/banner logos/adidas-2.svg'
 import Image from 'next/future/image'
-import ProductsContainer from '../../components/ProductsContainer'
-import { Product } from '../../types/product'
-import { Api } from '../../libs/axios'
+import ProductsContainer from '../../../components/ProductsContainer'
+import { Product } from '../../../types/product'
+import { Api } from '../../../libs/axios'
 import { GetServerSideProps } from 'next'
-import PaginationFilter from '../../components/PaginationFilter'
+import PaginationFilter from '../../../components/PaginationFilter'
 
 export default function adidas(products: Product[]) {
   return (

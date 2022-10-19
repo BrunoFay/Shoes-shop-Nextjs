@@ -3,16 +3,18 @@ import { Product } from '../types/product'
 
 interface ProductContext {
   productsContext: Product[]
-  changeProductContext: (s: Product[]) => void
+  changeProductContext: (s: any) => void
 }
 export const productContext = createContext({} as ProductContext)
 
 export function ProductProvider({ children }: PropsWithChildren) {
-  const [productsContext, setProductsContext] = useState<Product[]>([])
+  const [productsContext, setProductsContext] = useState([])
 
-  function changeProductContext(products: Product[]) {
+  async function changeProductContext(products: any) {
+    console.log(products)
     setProductsContext(products)
   }
+
   const valueToProvide = { productsContext, changeProductContext }
   return (
     <productContext.Provider value={valueToProvide}>
