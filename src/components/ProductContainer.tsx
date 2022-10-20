@@ -1,6 +1,6 @@
-import Image from 'next/future/image'
-import { CaretLeft, CaretRight, Heart, Tote } from 'phosphor-react'
+import { Heart, Tote } from 'phosphor-react'
 import { Product } from '../types/product'
+import Carousel from './Carousel'
 
 export default function ProductContainer({
   logo,
@@ -9,66 +9,9 @@ export default function ProductContainer({
   logo: string
   product: Product
 }) {
-  function setCarouselImages() {
-    if (
-      product.secondariesImages &&
-      typeof product.secondariesImages !== 'string'
-    ) {
-      return product?.secondariesImages.map((img) => (
-        <Image
-          key={product.id}
-          className="shadow-lg drop-shadow rounded"
-          alt=""
-          src={img}
-          width={170}
-          height={152}
-        />
-      ))
-    }
-    return (
-      <Image
-        key={product.id}
-        className="shadow-lg drop-shadow rounded"
-        alt=""
-        src={product.secondariesImages}
-        width={170}
-        height={152}
-      />
-    )
-  }
-
   return (
     <div className="flex bg-white min-w-screen">
-      <div className=" border  items-center gap-1 flex flex-col 2xl:h-screen min-h-screen w-[70vw] lg:w-[80vw]">
-        <div className="relative top-10 left-[42%] flex">
-          <button>
-            <CaretLeft size={32} color="gray" />
-          </button>
-          <button>
-            <CaretRight size={32} />
-          </button>
-        </div>
-        <div className="relative bottom-3 right-[45%] flex">
-          <Image
-            className="relative left-8"
-            src={logo}
-            alt=""
-            width={70}
-            height="auto"
-          />
-        </div>
-        <Image
-          className="lg:w-[580px] w-[50vw]"
-          alt=""
-          src={product.mainImage}
-          width={580}
-          height={558}
-        />
-        <div className="flex  gap-5 max-w-[854px] w-auto">
-          {setCarouselImages()}
-        </div>
-      </div>
-
+      <Carousel logo={logo} product={product} />
       <div className=" items-center border justify-between py-10 flex flex-col 2xl:h-screen min-h-screen w-[30vw] lg:w-[20vw]">
         <div className="flex flex-col px-8 gap-7">
           <div className="flex items-center">
