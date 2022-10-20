@@ -25,7 +25,7 @@ npm run dev
 ```bash
 DATABASE_URL= mongoDb url
 API_URL= 'http://localhost:3000/api'
-``
+```
 ### Next steps:
 - [ ] Responsivity
 - [ ] Spinner loading (images)
