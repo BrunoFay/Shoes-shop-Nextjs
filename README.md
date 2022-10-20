@@ -37,3 +37,7 @@ API_URL= 'http://localhost:3000/api'
 ### Observations:
 - it's necessary to have mongoDB installed on the machine or roaming via container
 - Run the scrape script first, to populate the database, go Link session and go to  web spraping repo
+
+### To view a video of my version of the project, click on the image below!
+
+[![Watch the video](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvX7XjW8SbO7M8RFY41EYr8WtFq9QouZ7L5A&usqp=CAU)](https://youtu.be/Iy02MsNC5b4)
