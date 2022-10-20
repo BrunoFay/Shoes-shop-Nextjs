@@ -9,7 +9,7 @@ input::-webkit-inner-spin-button {
 }
 
 *{
-@apply box-border outline-2 outline-orange-500 ring-orange-500;
+@apply box-border outline-2 outline-brand ring-brand;
   -webkit-font-smoothing: antialiased;
 }
 

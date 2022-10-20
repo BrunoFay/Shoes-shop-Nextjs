@@ -47,7 +47,7 @@ export default function ProductCard(product: Product) {
       {
         <a
           href={`${productHref}`}
-          className="rounded hover:shadow-orange-500 transition-shadow shadow-md drop-shadow-lg"
+          className="rounded hover:shadow-brand transition-shadow shadow-md drop-shadow-lg"
         >
           <Image
             className="rounded w-auto"
@@ -59,6 +59,7 @@ export default function ProductCard(product: Product) {
             alt=""
             width={386}
             height={328}
+            quality={80}
             /* priority */
             loading="lazy"
           />

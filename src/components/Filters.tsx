@@ -24,14 +24,14 @@ export default function Filters() {
         } flex flex-col  text-center items-center `}
       >
         <strong className="text-2xl first-letter:uppercase text-zinc-800 drop-shadow-lg shadow-black">
-          {currentCategory}
+          {currentCategory || 'Sneakers'}
         </strong>
         <div className="mt-9  w-fit items-center flex flex-col gap-6 ">
           {handleCategoriesFilters().map((category, i) => (
             <button
               key={i}
               onClick={() => handleChangeProductByFilter(category)}
-              className={`focus:border-orange-500 border-b-4 border-b-transparent rounded px-2 uppercase`}
+              className={`focus:border-brand border-b-4 border-b-transparent rounded px-2 uppercase`}
             >
               {category}
             </button>
@@ -75,7 +75,7 @@ export default function Filters() {
             />
             <button
               onClick={() => handleChangeProductByFilter('laranja')}
-              className="w-5 h-5 rounded-full bg-orange-500"
+              className="w-5 h-5 rounded-full bg-brand"
             />
             <button
               onClick={() => handleChangeProductByFilter('preto')}

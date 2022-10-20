@@ -20,7 +20,7 @@ export default function Header() {
             <a
               className={`${
                 router.pathname === '/category/nike' &&
-                'text-zinc-900 border-orange-500'
+                'text-zinc-900 border-brand'
               }`}
             >
               Nike
@@ -30,7 +30,7 @@ export default function Header() {
             <a
               className={`${
                 router.pathname === '/category/adidas' &&
-                'text-zinc-900 border-orange-500'
+                'text-zinc-900 border-brand'
               }`}
             >
               Adidas
@@ -40,7 +40,7 @@ export default function Header() {
             <a
               className={`${
                 router.pathname === '/category/puma' &&
-                'text-zinc-900 border-orange-500'
+                'text-zinc-900 border-brand'
               }`}
             >
               Puma
@@ -50,7 +50,7 @@ export default function Header() {
             <a
               className={`${
                 router.pathname === '/category/vans' &&
-                'text-zinc-900 border-orange-500'
+                'text-zinc-900 border-brand'
               }`}
             >
               Vans

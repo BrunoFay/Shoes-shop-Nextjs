@@ -20,51 +20,51 @@ export default function Banner({ children }: PropsWithChildren) {
         <button onClick={() => handleGridFilter('two')} className="flex gap-1">
           <div
             className={`${
-              gridFilter === 'two' && 'bg-orange-500'
+              gridFilter === 'two' && 'bg-brand'
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
           <div
             className={`${
-              gridFilter === 'two' && 'bg-orange-500'
+              gridFilter === 'two' && 'bg-brand'
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
         </button>
         <button onClick={() => handleGridFilter('tree')} className="flex gap-1">
           <div
             className={`${
-              gridFilter === 'tree' && 'bg-orange-500'
+              gridFilter === 'tree' && 'bg-brand'
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
           <div
             className={`${
-              gridFilter === 'tree' && 'bg-orange-500  '
+              gridFilter === 'tree' && 'bg-brand  '
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
           <div
             className={`${
-              gridFilter === 'tree' && 'bg-orange-500  '
+              gridFilter === 'tree' && 'bg-brand  '
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
         </button>
         <button onClick={() => handleGridFilter('four')} className="flex gap-1">
           <div
             className={`${
-              gridFilter === 'four' && 'bg-orange-500  '
+              gridFilter === 'four' && 'bg-brand  '
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
           <div
             className={`${
-              gridFilter === 'four' && 'bg-orange-500  '
+              gridFilter === 'four' && 'bg-brand  '
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
           <div
             className={`${
-              gridFilter === 'four' && 'bg-orange-500  '
+              gridFilter === 'four' && 'bg-brand  '
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
           <div
             className={`${
-              gridFilter === 'four' && 'bg-orange-500  '
+              gridFilter === 'four' && 'bg-brand  '
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
         </button>
@@ -74,27 +74,27 @@ export default function Banner({ children }: PropsWithChildren) {
         >
           <div
             className={`${
-              gridFilter === 'five' && 'bg-orange-500 '
+              gridFilter === 'five' && 'bg-brand '
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
           <div
             className={`${
-              gridFilter === 'five' && 'bg-orange-500 '
+              gridFilter === 'five' && 'bg-brand '
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
           <div
             className={`${
-              gridFilter === 'five' && 'bg-orange-500 '
+              gridFilter === 'five' && 'bg-brand '
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
           <div
             className={`${
-              gridFilter === 'five' && 'bg-orange-500 '
+              gridFilter === 'five' && 'bg-brand '
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
           <div
             className={`${
-              gridFilter === 'five' && 'bg-orange-500 '
+              gridFilter === 'five' && 'bg-brand '
             } w-6 h-6 rounded border-2 border-zinc-500`}
           />
         </button>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { productContext } from '../context/productsProvider'
 import { Api } from '../libs/axios'
 
@@ -44,7 +44,7 @@ export default function PaginationFilter({ numPages, apiURL }: any) {
             <button
               onClick={() => setCurrentPage(i)}
               className={`${
-                currentPage === i ? 'text-orange-500' : 'text-gray-500'
+                currentPage === i ? 'text-brand' : 'text-gray-500'
               } py-2 px-3 leading-tight  bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}
             >
               {i + 1}

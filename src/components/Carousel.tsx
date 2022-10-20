@@ -48,10 +48,11 @@ export default function Carousel({
           onClick={() => setCurrentSlide(i)}
           key={product.id}
           className={`${
-            currentSlide === i && 'shadow-orange-500 ring-2'
+            currentSlide === i && 'shadow-brand ring-2'
           } keen-slider__slide cursor-pointer shadow-lg drop-shadow rounded`}
           alt=""
           src={img}
+          quality={70}
           width={170}
           height={152}
           loading="lazy"
