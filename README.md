@@ -31,6 +31,8 @@ API_URL= 'http://localhost:3000/api'
 - [ ] Spinner loading (images)
 - [ ] Tests
 - [ ] Filter By Name
+- [ ] Filter By Price
+- [ ] Deploy
 
 ### Observations:
 - it's necessary to have mongoDB installed on the machine or roaming via container
