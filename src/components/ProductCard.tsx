@@ -15,7 +15,6 @@ export default function ProductCard(product: Product) {
   const { productSizes } = useContext(filterContext)
   const router = useRouter()
   const [productHref, setProductHref] = useState('')
-
   useEffect(() => {
     switch (router.pathname) {
       case '/category/nike':
@@ -45,21 +44,26 @@ export default function ProductCard(product: Product) {
         'hidden'
       } w-auto items-center flex flex-col`}
     >
-      <a href={`${productHref}`} className="rounded shadow-md drop-shadow-lg">
-        <Image
-          className="rounded w-auto"
-          src={
-            product.mainImage.includes('assets')
-              ? product.primaryCardImage
-              : product.mainImage
-          }
-          alt=""
-          width={386}
-          height={328}
-          blurDataURL={product.primaryCardImage}
-          placeholder="blur"
-        />
-      </a>
+      {
+        <a
+          href={`${productHref}`}
+          className="rounded hover:shadow-orange-500 transition-shadow shadow-md drop-shadow-lg"
+        >
+          <Image
+            className="rounded w-auto"
+            src={
+              product.mainImage.includes('assets')
+                ? product.primaryCardImage
+                : product.mainImage
+            }
+            alt=""
+            width={386}
+            height={328}
+            /* priority */
+            loading="lazy"
+          />
+        </a>
+      }
       <div className="px-1 mt-2 text-lg flex flex-col gap-1">
         <span
           className={`${productSizes} lowercase text-gray-700 font-semibold first-letter:uppercase`}

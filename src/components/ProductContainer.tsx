@@ -1,6 +1,13 @@
-import { Heart, Tote } from 'phosphor-react'
+import {
+  FigmaLogo,
+  GithubLogo,
+  Heart,
+  LinkedinLogo,
+  Tote,
+} from 'phosphor-react'
 import { Product } from '../types/product'
 import Carousel from './Carousel'
+/* import RecommendedCarousel from './RecommendedCarousel' */
 
 export default function ProductContainer({
   logo,
@@ -52,10 +59,11 @@ export default function ProductContainer({
             <Heart color="red" size={20} />
           </button>
         </div>
-        <div>
-          <span>saad</span>
-          <span>saad</span>
-          <span>saad</span>
+        {/*  <RecommendedCarousel /> */}
+        <div className="flex gap-2">
+          <LinkedinLogo size={32} color={'#0072b1'} />
+          <FigmaLogo size={32} color={'#ee1eb0'} />
+          <GithubLogo size={32} />
         </div>
       </div>
     </div>

@@ -47,11 +47,14 @@ export default function Carousel({
           tabIndex={0}
           onClick={() => setCurrentSlide(i)}
           key={product.id}
-          className="keen-slider__slide cursor-pointer shadow-lg drop-shadow rounded"
+          className={`${
+            currentSlide === i && 'shadow-orange-500 ring-2'
+          } keen-slider__slide cursor-pointer shadow-lg drop-shadow rounded`}
           alt=""
           src={img}
           width={170}
           height={152}
+          loading="lazy"
         />
       ))
     }
@@ -60,7 +63,7 @@ export default function Carousel({
         key={product.id}
         className="keen-slider__slide shadow-lg drop-shadow rounded"
         alt=""
-        src={product.secondariesImages}
+        src={product.secondaryCardImage}
         width={170}
         height={152}
       />
@@ -101,6 +104,7 @@ export default function Carousel({
         src={images[currentSlide]}
         width={580}
         height={558}
+        priority
       />
       <div ref={ref} className="keen-slider flex mt-8 shadow-lg max-w-[753px]">
         {setCarouselImages()}

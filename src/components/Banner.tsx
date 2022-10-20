@@ -102,7 +102,7 @@ export default function Banner({ children }: PropsWithChildren) {
 
       <button
         onClick={handleFilterVisibility}
-        className="flex items-center pr-24 gap-2"
+        className="flex items-center xl:mr-24  gap-2"
       >
         {isFilterHidden ? 'Show Filters' : 'Hide Filters'}
         <SlidersHorizontal size={28} />
