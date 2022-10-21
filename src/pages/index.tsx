@@ -21,6 +21,7 @@ export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
   const product = await Api.get('/allSneakers')
+
   return {
     props: {
       products: product.data,
