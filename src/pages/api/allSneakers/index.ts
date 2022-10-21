@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { db, getCities } from '../../../libs/firebase/clientApp'
+import { getSneakers } from '../../../libs/firebase/functions'
 import { prisma } from '../../../libs/prisma'
 
 export default async function handler(
@@ -15,10 +15,9 @@ export default async function handler(
     const page = req.query.p || 0
     const sneakersPerPage = 50
     const filterType = req.query.filter
-
-    const t = await getCities(db)
-    console.log(t)
-    /* APLICAR EM TODAS AS ROTAS */
+    /*
+    const allSneakers = await getSneakers('Sneakers')
+ */
 
     if (filterType) {
       const allSneakersCategory = await prisma.sneakers.findMany({
@@ -31,6 +30,7 @@ export default async function handler(
 
       return res.status(200).json(allSneakersCategory)
     }
+
     const allSneakers = await prisma.sneakers.findMany({
       skip: Number(page) * sneakersPerPage,
       take: 50,

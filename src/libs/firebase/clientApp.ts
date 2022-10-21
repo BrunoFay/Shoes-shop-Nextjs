@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { collection, getDocs, getFirestore } from 'firebase/firestore/lite'
+import { getFirestore } from 'firebase/firestore/lite'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,10 +19,3 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
 export const db = getFirestore(app)
-export async function getCities(s: any) {
-  const citiesCol = collection(db, 'teste')
-  const citySnapshot = await getDocs(citiesCol)
-  const cityList = citySnapshot.docs.map((doc) => doc.data())
-  return cityList
-}
-console.log(getCities(db))
