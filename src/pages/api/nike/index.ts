@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { prisma } from '../../../libs/prisma'
+import { getSneakers } from '../../../libs/firebase/functions'
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,26 +11,7 @@ export default async function handler(
     if (method !== 'GET') {
       return res.status(405).end(`Method ${method} Not Allowed`)
     }
-    const page = req.query.p || 0
-    const sneakersPerPage = 50
-    const filterType = req.query.filter
-
-    if (filterType) {
-      const nikeCategory = await prisma.nike.findMany({
-        where: {
-          title: { contains: String(filterType), mode: 'insensitive' },
-        },
-        skip: Number(page) * sneakersPerPage,
-        take: 50,
-      })
-
-      return res.status(200).json(nikeCategory)
-    }
-
-    const nike = await prisma.nike.findMany({
-      skip: Number(page) * sneakersPerPage,
-      take: 50,
-    })
+    const nike = await getSneakers('Nike')
 
     return res.status(200).json(nike)
   } catch (error) {

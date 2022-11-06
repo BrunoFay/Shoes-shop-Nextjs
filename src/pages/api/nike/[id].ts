@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { prisma } from '../../../libs/prisma'
+import { getSneakers } from '../../../libs/firebase/functions'
 
 export default async function userHandler(
   req: NextApiRequest,
@@ -14,11 +14,8 @@ export default async function userHandler(
     return res.status(405).end(`Method ${method} Not Allowed`)
   }
   if (id) {
-    const nike = await prisma.nike.findUnique({
-      where: {
-        id: id as string,
-      },
-    })
-    return res.status(200).json(nike)
+    const nike = await getSneakers('Nike')
+    const nikeFiltered = nike.filter((sneaker) => sneaker.id === id)[0]
+    return res.status(200).json(nikeFiltered)
   }
 }

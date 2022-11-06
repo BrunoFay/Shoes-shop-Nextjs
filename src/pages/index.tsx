@@ -1,7 +1,6 @@
-import type { GetStaticProps } from 'next'
+import type { GetServerSideProps } from 'next'
 import Banner from '../components/Banner'
 import MainContainer from '../components/MainContainer'
-import PaginationFilter from '../components/PaginationFilter'
 import ProductsContainer from '../components/ProductsContainer'
 import { Api } from '../libs/axios'
 import { Product } from '../types/product'
@@ -11,7 +10,6 @@ const Home = (products: Product[]) => {
   return (
     <MainContainer>
       <Banner />
-      <PaginationFilter numPages={27} apiURL={'allSneakers'} />
       <ProductsContainer {...products} pagination />
     </MainContainer>
   )
@@ -19,7 +17,7 @@ const Home = (products: Product[]) => {
 
 export default Home
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const product = await Api.get('/allSneakers')
 
   return {

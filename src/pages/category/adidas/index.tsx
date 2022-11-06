@@ -1,13 +1,11 @@
-import React from 'react'
+import { GetServerSideProps } from 'next'
+import Image from 'next/future/image'
+import adidasLogo2 from '../../../assets/banner logos/adidas-2.svg'
 import Banner from '../../../components/Banner'
 import MainContainer from '../../../components/MainContainer'
-import adidasLogo2 from '../../../assets/banner logos/adidas-2.svg'
-import Image from 'next/future/image'
 import ProductsContainer from '../../../components/ProductsContainer'
-import { Product } from '../../../types/product'
 import { Api } from '../../../libs/axios'
-import { GetServerSideProps } from 'next'
-import PaginationFilter from '../../../components/PaginationFilter'
+import { Product } from '../../../types/product'
 
 export default function adidas(products: Product[]) {
   return (
@@ -18,7 +16,6 @@ export default function adidas(products: Product[]) {
           Impossible is Nothing!
         </h2>
       </Banner>
-      <PaginationFilter numPages={3} apiURL={'adidas'} />
       <ProductsContainer {...products} pagination />
     </MainContainer>
   )

@@ -59,7 +59,6 @@ export default function ProductCard(product: Product) {
             alt=""
             width={386}
             height={328}
-            quality={80}
             /* priority */
             loading="lazy"
           />
