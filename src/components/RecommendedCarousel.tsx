@@ -1,6 +1,6 @@
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { Api } from '../libs/axios'
