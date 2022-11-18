@@ -52,7 +52,8 @@ export default function Carousel({
           } keen-slider__slide cursor-pointer shadow-lg drop-shadow rounded`}
           alt=""
           src={img}
-          placeholder="blur"
+          width={170}
+          height={152}
         />
       ))
     }
@@ -62,7 +63,8 @@ export default function Carousel({
         className="keen-slider__slide shadow-lg drop-shadow rounded"
         alt=""
         src={product.secondaryCardImage}
-        placeholder="blur"
+        width={170}
+        height={152}
       />
     )
   }
@@ -87,19 +89,15 @@ export default function Carousel({
         </button>
       </div>
       <div className="relative bottom-3 right-[45%] flex">
-        <Image
-          className="relative left-8"
-          src={logo}
-          alt=""
-          placeholder="blur"
-        />
+        <Image className="relative left-8" src={logo} alt="" width={70} />
       </div>
       <Image
         className="lg:w-[580px] w-[50vw]"
         alt=""
         src={images[currentSlide]}
-        placeholder="blur"
         priority
+        width={580}
+        height={558}
       />
       <div ref={ref} className="keen-slider flex mt-8 shadow-lg max-w-[753px]">
         {setCarouselImages()}

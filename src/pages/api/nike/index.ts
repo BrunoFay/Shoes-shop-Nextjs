@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { query as q } from 'faunadb'
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { fauna } from '../../../libs/fauna'
+import type { NextApiRequest, NextApiResponse } from 'next'
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,

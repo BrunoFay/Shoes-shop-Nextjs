@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getSneakers } from '../../../libs/firebase/functions'
+import { query as q } from 'faunadb'
+import { fauna } from '../../../libs/fauna'
 
 export default async function userHandler(
   req: NextApiRequest,
@@ -14,8 +15,16 @@ export default async function userHandler(
     return res.status(405).end(`Method ${method} Not Allowed`)
   }
   if (id) {
-    const nike = await getSneakers('Nike')
-    const nikeFiltered = nike.filter((sneaker) => sneaker.id === id)[0]
-    return res.status(200).json(nikeFiltered)
+    const nike: any = await fauna.query(
+      q.Map(
+        q.Paginate(q.Documents(q.Collection('Nike'))),
+        q.Lambda('X', q.Get(q.Var('X'))),
+      ),
+    )
+    const responseApi = nike.data
+      .map((e: any) => ({ ...e.data }))
+      .filter((e: any) => e.id === id)[0]
+
+    return res.status(200).json(responseApi)
   }
 }
