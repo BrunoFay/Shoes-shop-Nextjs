@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import pumaLogo2 from '../../../assets/banner logos/puma.svg'
 import Banner from '../../../components/Banner'
 import MainContainer from '../../../components/MainContainer'

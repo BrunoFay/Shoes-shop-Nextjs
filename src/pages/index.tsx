@@ -19,7 +19,6 @@ export default Home
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const product = await Api.get('/allSneakers')
-
   return {
     props: {
       products: product.data,

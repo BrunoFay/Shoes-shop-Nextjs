@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import adidasLogo2 from '../../../assets/banner logos/adidas-2.svg'
 import Banner from '../../../components/Banner'
 import MainContainer from '../../../components/MainContainer'

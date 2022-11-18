@@ -1,6 +1,6 @@
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { CaretLeft, CaretRight } from 'phosphor-react'
 import { useEffect, useState } from 'react'
 import { Product } from '../types/product'
@@ -20,7 +20,7 @@ export default function Carousel({
 
   useEffect(() => {
     setImages([product.mainImage, ...secondariesImagesWithoutMainImage])
-  }, [])
+  }, [product.mainImage, secondariesImagesWithoutMainImage])
 
   const validateCardPerView = images.length > 4 ? 3.4 : images.length
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -52,10 +52,7 @@ export default function Carousel({
           } keen-slider__slide cursor-pointer shadow-lg drop-shadow rounded`}
           alt=""
           src={img}
-          quality={70}
-          width={170}
-          height={152}
-          loading="lazy"
+          placeholder="blur"
         />
       ))
     }
@@ -65,8 +62,7 @@ export default function Carousel({
         className="keen-slider__slide shadow-lg drop-shadow rounded"
         alt=""
         src={product.secondaryCardImage}
-        width={170}
-        height={152}
+        placeholder="blur"
       />
     )
   }
@@ -95,16 +91,14 @@ export default function Carousel({
           className="relative left-8"
           src={logo}
           alt=""
-          width={70}
-          height="auto"
+          placeholder="blur"
         />
       </div>
       <Image
         className="lg:w-[580px] w-[50vw]"
         alt=""
         src={images[currentSlide]}
-        width={580}
-        height={558}
+        placeholder="blur"
         priority
       />
       <div ref={ref} className="keen-slider flex mt-8 shadow-lg max-w-[753px]">

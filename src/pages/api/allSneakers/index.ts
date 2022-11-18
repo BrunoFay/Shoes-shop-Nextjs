@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getSneakers } from '../../../libs/firebase/functions'
+import { query as q } from 'faunadb'
+import { fauna } from '../../../libs/fauna'
 
 export default async function handler(
   req: NextApiRequest,
@@ -15,9 +16,15 @@ export default async function handler(
     const sneakersPerPage = 50
     const filterType = req.query.filter */
 
-    const allSneakers = await getSneakers('Sneakers')
+    const allSneakers: any = await fauna.query(
+      q.Map(
+        q.Paginate(q.Documents(q.Collection('AllSneakers'))),
+        q.Lambda('X', q.Get(q.Var('X'))),
+      ),
+    )
+    const responseApi = allSneakers.data.map((e: any) => ({ ...e.data }))
 
-    return res.status(200).json(allSneakers)
+    return res.status(200).json(responseApi)
   } catch (error) {
     console.log(error)
   }

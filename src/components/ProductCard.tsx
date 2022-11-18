@@ -1,4 +1,5 @@
-import Image from 'next/future/image'
+import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import { filterContext } from '../context/filterProvider'
@@ -34,8 +35,7 @@ export default function ProductCard(product: Product) {
         setProductHref(`/category/sneakers/${product.id}`)
         break
     }
-  }, [router.pathname])
-
+  }, [product.id, router.pathname])
   return (
     <div
       className={`${
@@ -45,7 +45,7 @@ export default function ProductCard(product: Product) {
       } w-auto items-center flex flex-col`}
     >
       {
-        <a
+        <Link
           href={`${productHref}`}
           className="rounded hover:shadow-brand transition-shadow shadow-md drop-shadow-lg"
         >
@@ -59,10 +59,8 @@ export default function ProductCard(product: Product) {
             alt=""
             width={386}
             height={328}
-            /* priority */
-            loading="lazy"
           />
-        </a>
+        </Link>
       }
       <div className="px-1 mt-2 text-lg flex flex-col gap-1">
         <span

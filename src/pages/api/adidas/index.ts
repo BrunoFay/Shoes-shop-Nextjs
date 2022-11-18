@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { query as q } from 'faunadb'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getSneakers } from '../../../libs/firebase/functions'
+import { fauna } from '../../../libs/fauna'
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,29 +12,14 @@ export default async function handler(
     if (method !== 'GET') {
       return res.status(405).end(`Method ${method} Not Allowed`)
     }
-    const adidas = await getSneakers('Adidas')
-    /*     const page = req.query.p || 0
-    const sneakersPerPage = 50
-    const filterType = req.query.filter
-
-    if (filterType) {
-      const adidasCategory = await prisma.adidas.findMany({
-        where: {
-          title: { contains: String(filterType), mode: 'insensitive' },
-        },
-        skip: Number(page) * sneakersPerPage,
-        take: 50,
-      })
-
-      return res.status(200).json(adidasCategory)
-    }
-
-    const adidas = await prisma.adidas.findMany({
-      skip: Number(page) * sneakersPerPage,
-      take: 50,
-    }) */
-
-    return res.status(200).json(adidas)
+    const adidas: any = await fauna.query(
+      q.Map(
+        q.Paginate(q.Documents(q.Collection('Adidas'))),
+        q.Lambda('X', q.Get(q.Var('X'))),
+      ),
+    )
+    const responseApi = adidas.data.map((e: any) => ({ ...e.data }))
+    return res.status(200).json(responseApi)
   } catch (error) {
     console.log(error)
   }
