@@ -64,7 +64,7 @@ export default function ProductCard(product: Product) {
           />
         </Link>
       }
-      <div className="px-1 mt-2 text-lg flex flex-col gap-1">
+      <div className="px-2 mt-2 text-lg flex md:flex-col justify-between w-full gap-1">
         <span
           className={`${productSizes} lowercase text-gray-700 font-semibold first-letter:uppercase`}
         >

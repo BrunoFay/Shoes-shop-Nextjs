@@ -40,8 +40,9 @@ export function FilterProvider({ children }: PropsWithChildren) {
         return 'grid-cols-4'
       default:
         setProductSizes('text-sm')
-        return `2xl:grid-cols-5 grid-cols-4 ${
-          gridFilter !== 'four' || (!isFilterHidden && ' md:grid-cols-3')
+        return `2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 ${
+          gridFilter !== 'four' ||
+          (!isFilterHidden && ' md:grid-cols-3 sm:grid-cols-2 grid-cols-1')
         }`
     }
   }
