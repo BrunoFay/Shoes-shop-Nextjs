@@ -1,6 +1,9 @@
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 export default function HamburgerMenu({ setIsNavOpen, isNavOpen }: any) {
+  const router = useRouter()
   return (
     <section className="flex lg:hidden">
       <div
@@ -32,13 +35,53 @@ export default function HamburgerMenu({ setIsNavOpen, isNavOpen }: any) {
         </div>
         <ul className="flex flex-col items-center justify-between min-h-[250px]">
           <li className="border-b border-gray-400 my-8 uppercase">
-            <a href="/about">About</a>
+            <Link
+              className={`${
+                router.pathname === '/category/nike' &&
+                'text-zinc-900 border-brand'
+              }`}
+              href="/category/nike"
+            >
+              Nike
+            </Link>
           </li>
           <li className="border-b border-gray-400 my-8 uppercase">
-            <a href="/portfolio">Portfolio</a>
+            <Link
+              className={`${
+                router.pathname === '/category/adidas' &&
+                'text-zinc-900 border-brand'
+              }`}
+              href="/category/adidas"
+            >
+              Adidas
+            </Link>
           </li>
           <li className="border-b border-gray-400 my-8 uppercase">
-            <a href="/contact">Contact</a>
+            <Link
+              className={`${
+                router.pathname === '/category/puma' &&
+                'text-zinc-900 border-brand'
+              }`}
+              href="/category/puma"
+            >
+              Puma
+            </Link>
+          </li>
+          <li className="border-b border-gray-400 my-8 uppercase">
+            <Link
+              className={`${
+                router.pathname === '/category/vans' &&
+                'text-zinc-900 border-brand'
+              }`}
+              href="/category/vans"
+            >
+              Vans
+            </Link>
+          </li>
+          <li className="border-b border-gray-400 my-8 uppercase">
+            <Link className={`${router.pathname === '/' && ''}`} href="/">
+              Sneakers
+            </Link>
           </li>
         </ul>
       </div>
