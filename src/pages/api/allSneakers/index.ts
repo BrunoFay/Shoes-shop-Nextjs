@@ -23,7 +23,6 @@ export default async function handler(
       )
        const responseApi = sneaker.data.map((e: any) => ({ ...e.data }))
 
-      console.log(sneaker)
             return res.status(200).json(responseApi)
     }
  */
