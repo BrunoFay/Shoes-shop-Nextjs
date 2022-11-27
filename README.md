@@ -18,8 +18,8 @@ npm run dev
 
 ### Links:
  [Figma](https://www.figma.com/file/AIuf4ETEFT3JFug9mGsxci/Sneaker-shop?node-id=0%3A1) </br>
- [Web Scraping](https://github.com/BrunoFay/Web-Scraping-Selenium-Python)
-
+ [Web Scraping](https://github.com/BrunoFay/Web-Scraping-Selenium-Python)</br>
+ [Web site](https://shoes-shop-nextjs.vercel.app/)
 
 ### Environment variables:
 ```bash
@@ -32,10 +32,10 @@ API_URL= 'http://localhost:3000/api'
 - [ ] Tests
 - [ ] Filter By Name
 - [ ] Filter By Price
-- [ ] Deploy
+- [x] Deploy
 
 ### Observations:
-- it's necessary to have mongoDB installed on the machine or roaming via container
+- it's necessary to have mongoDB installed on the machine or roaming via container if you get de shoes infos by Web Scrapping
 - Run the scrape script first, to populate the database, go Link session and go to  web spraping repo
 
 ### To view a video of my version of the project, click on the image below!
