@@ -8,12 +8,12 @@ export default function ProductsContainer({
   pagination = false,
 }: any) {
   const { setGridColumns } = useContext(filterContext)
-
+  console.log(productsApi)
   return (
     <main
       className={`${setGridColumns()} bg-white grid gap-8 px-8 py-10 flex-1`}
     >
-      {productsApi.map((product: Product) => (
+      {productsApi?.map((product: Product) => (
         <ProductCard key={product.id} {...product} />
       ))}
     </main>

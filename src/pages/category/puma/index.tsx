@@ -1,13 +1,12 @@
-import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import pumaLogo2 from '../../../assets/banner logos/puma.svg'
 import Banner from '../../../components/Banner'
 import MainContainer from '../../../components/MainContainer'
 import ProductsContainer from '../../../components/ProductsContainer'
-import { Api } from '../../../libs/axios'
-import { Product } from '../../../types/product'
+import { useProducts } from '../../../hooks/useProducts'
 
-export default function puma(products: Product[]) {
+export default function Puma() {
+  const { products } = useProducts('puma')
   return (
     <MainContainer>
       <Banner>
@@ -16,16 +15,7 @@ export default function puma(products: Product[]) {
           Forever Faster!
         </h2>
       </Banner>
-      <ProductsContainer {...products} />
+      <ProductsContainer products={products} />
     </MainContainer>
   )
-}
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const product = await Api.get('/puma')
-  return {
-    props: {
-      products: product.data,
-    },
-  }
 }

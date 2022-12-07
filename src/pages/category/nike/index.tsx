@@ -1,13 +1,12 @@
-import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import nikeLogo2 from '../../../assets/banner logos/nike-2.svg'
 import Banner from '../../../components/Banner'
 import MainContainer from '../../../components/MainContainer'
 import ProductsContainer from '../../../components/ProductsContainer'
-import { Api } from '../../../libs/axios'
-import { Product } from '../../../types/product'
+import { useProducts } from '../../../hooks/useProducts'
 
-export default function nike(products: Product[]) {
+export default function Nike() {
+  const { products } = useProducts('nike')
   return (
     <MainContainer>
       <Banner>
@@ -16,16 +15,7 @@ export default function nike(products: Product[]) {
           Write the Future Just Do It!
         </h2>
       </Banner>
-      <ProductsContainer {...products} pagination />
+      <ProductsContainer products={products} pagination />
     </MainContainer>
   )
-}
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const product = await Api.get('/nike')
-  return {
-    props: {
-      products: product.data,
-    },
-  }
 }

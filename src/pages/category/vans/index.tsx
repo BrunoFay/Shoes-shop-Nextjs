@@ -1,13 +1,12 @@
-import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import vansLogo2 from '../../../assets/banner logos/vans-2.svg'
 import Banner from '../../../components/Banner'
 import MainContainer from '../../../components/MainContainer'
 import ProductsContainer from '../../../components/ProductsContainer'
-import { Api } from '../../../libs/axios'
-import { Product } from '../../../types/product'
+import { useProducts } from '../../../hooks/useProducts'
 
-export default function vans(products: Product[]) {
+export default function Vans() {
+  const { products } = useProducts('vans')
   return (
     <MainContainer>
       <Banner>
@@ -16,16 +15,7 @@ export default function vans(products: Product[]) {
           Of the Wall!
         </h2>
       </Banner>
-      <ProductsContainer {...products} />
+      <ProductsContainer products={products} />
     </MainContainer>
   )
-}
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const product = await Api.get('/vans')
-  return {
-    props: {
-      products: product.data,
-    },
-  }
 }

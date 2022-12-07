@@ -19,28 +19,28 @@ export default function ProductCard(product: Product) {
   useEffect(() => {
     switch (router.pathname) {
       case '/category/nike':
-        setProductHref(`/category/nike/${product.id}`)
+        setProductHref(`/category/nike/${product?.id}`)
         break
       case '/category/adidas':
-        setProductHref(`/category/adidas/${product.id}`)
+        setProductHref(`/category/adidas/${product?.id}`)
         break
       case '/category/vans':
-        setProductHref(`/category/vans/${product.id}`)
+        setProductHref(`/category/vans/${product?.id}`)
         break
       case '/category/puma':
-        setProductHref(`/category/puma/${product.id}`)
+        setProductHref(`/category/puma/${product?.id}`)
         break
 
       default:
-        setProductHref(`/category/sneakers/${product.id}`)
+        setProductHref(`/category/sneakers/${product?.id}`)
         break
     }
-  }, [product.id, router.pathname])
+  }, [product?.id, router.pathname])
   return (
     <div
       className={`${
-        (product.mainImage.includes('assets') ||
-          ARRAYTOREMOVEPRODUCTS.includes(product.title)) &&
+        (product?.mainImage.includes('assets') ||
+          ARRAYTOREMOVEPRODUCTS.includes(product?.title)) &&
         'hidden'
       } w-auto items-center flex flex-col`}
     >
@@ -52,9 +52,9 @@ export default function ProductCard(product: Product) {
           <Image
             className="rounded w-auto"
             src={
-              product.mainImage.includes('assets')
-                ? product.primaryCardImage
-                : product.mainImage
+              product?.mainImage.includes('assets')
+                ? product?.primaryCardImage
+                : product?.mainImage
             }
             alt=""
             width={386}
@@ -68,10 +68,10 @@ export default function ProductCard(product: Product) {
         <span
           className={`${productSizes} lowercase text-gray-700 font-semibold first-letter:uppercase`}
         >
-          {product.title.replace('Tenis', '').replace('Tênis', '')}
+          {product?.title.replace('Tenis', '').replace('Tênis', '')}
         </span>
         <span className={`${productSizes} font-semibold text-gray-400`}>
-          R$ {product.price}
+          R$ {product?.price}
         </span>
       </div>
     </div>
