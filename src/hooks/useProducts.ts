@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Api } from '../libs/axios'
 
-export function useProducts(category: string) {
-  const [products, setProducts] = useState([])
+export function useProducts<t>(category: string, id?: string | string[]) {
+  const [products, setProducts] = useState<t>([] as t)
+  const [product, setProduct] = useState<t>({} as t)
+
+  async function getProduct() {
+    const productObj = await Api.get(`/${category}/${id}`)
+    setProduct(productObj.data)
+  }
 
   async function getProducts() {
     const productsList = await Api.get(`/${category}`)
@@ -13,5 +19,11 @@ export function useProducts(category: string) {
     getProducts()
   }, [])
 
-  return { products }
+  useEffect(() => {
+    if (id) {
+      getProduct()
+    }
+  }, [id])
+
+  return { products, product }
 }

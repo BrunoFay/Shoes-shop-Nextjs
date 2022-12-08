@@ -1,23 +1,15 @@
-import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 import nikeLogo from '../../../assets/banner logos/nike.svg'
 import ProductContainer from '../../../components/ProductContainer'
-import { Api } from '../../../libs/axios'
+import { useProducts } from '../../../hooks/useProducts'
 import { Product as ProductType } from '../../../types/product'
 
-export default function Product({ product }: { product: ProductType }) {
-  return <ProductContainer product={product} logo={nikeLogo} />
-}
-
-export const getServerSideProps: GetServerSideProps<
-  any,
-  { id: string }
-> = async ({ params }) => {
-  const productId = params?.id
-  const product = await Api.get(`/nike/${productId}`)
-
-  return {
-    props: {
-      product: product.data,
-    },
+export default function Product() {
+  const router = useRouter()
+  const { id } = router.query
+  const { product } = useProducts<ProductType>('nike', id)
+  if ('title' in product) {
+    return <ProductContainer product={product} logo={nikeLogo} />
   }
+  return null
 }
