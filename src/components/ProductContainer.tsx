@@ -18,9 +18,9 @@ export default function ProductContainer({
 }) {
   if ('title' in product) {
     return (
-      <div className="flex bg-white min-w-screen">
+      <div className="flex flex-col lg:flex-row bg-white min-w-screen">
         <Carousel logo={logo} product={product} />
-        <div className=" items-center border justify-between py-10 flex flex-col 2xl:h-screen min-h-screen w-[30vw] lg:w-[20vw]">
+        <div className=" items-center border justify-between py-10 flex flex-col 2xl:h-screen min-h-screen lg:w-[30vw] 2xl:w-[20vw]">
           <div className="flex flex-col px-8 gap-7">
             <div className="flex items-center">
               <h1 className=" xl:text-3xl text-xl font-bold">

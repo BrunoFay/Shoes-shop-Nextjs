@@ -22,7 +22,7 @@ export default function Header() {
         </div>
       </div>
       <div className="flex items-center bg-white border-b-2 border-l-2 2xl:border-r-2 justify-between px-10 w-[80%]">
-        <nav className="relative left-12 md:flex lg:text-base hidden text-sm lg:gap-10 gap-3">
+        <nav className="relative lg:left-12 md:flex lg:text-base hidden text-sm lg:gap-10 gap-3">
           <Link
             className={`${
               router.pathname === '/category/nike' &&

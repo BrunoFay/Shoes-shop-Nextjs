@@ -22,7 +22,7 @@ export default function Carousel({
     setImages([product.mainImage, ...secondariesImagesWithoutMainImage])
   }, [product.mainImage, secondariesImagesWithoutMainImage])
 
-  const validateCardPerView = images.length > 4 ? 3.4 : images.length
+  const validateCardPerView = images.length > 4 ? 3.4 : images.length + 1
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     initial: 0,
@@ -70,7 +70,7 @@ export default function Carousel({
   }
 
   return (
-    <div className=" border  items-center gap-1 flex flex-col 2xl:h-screen min-h-screen w-[70vw] lg:w-[80vw]">
+    <div className=" border  items-center gap-1 flex flex-col 2xl:h-screen xl:min-h-screen lg:w-[70vw] xl:w-[80vw]">
       <div className="relative top-10 left-[42%] flex">
         <button
           onClick={(e: any) =>
